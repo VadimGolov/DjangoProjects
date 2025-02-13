@@ -1,0 +1,15 @@
+<div class="brand-bond">
+        <p class="br-item">Адрес в Екатеринурге: ул. Луначарского, д.214</p>
+        <p class="br-item">Телефон: 8 (343) 226-46-32</p>
+        <p class="br-item">E-mail: <a href="https://e.mail.ru/compose/?mailto=order@posy.ru?subject=Заказ" target="_blank">order@posy.ru</a></p>
+        <p class="br-item">Telegram: <a href="https://t.me/Vegas_Real_AioBot">прием заказов в Telegram</a></p>
+    </div>
+    <div class="header-button">
+        <a class="btn btn-outline-light" href="{% url 'register' %}" role="button">Регистрация</a>
+        {% if user.is_authenticated %}
+            <a class="btn btn-outline-light" href="{% url 'logout' %}" role="button">Выход</a>
+            <a class="btn btn-outline-light" href="{% url 'orders' %}" role="button">Заказы</a>
+        {% else %}
+            <a class="btn btn-outline-light" href="{% url 'login' %}" role="button">Вход</a>
+        {% endif %}
+    </div>

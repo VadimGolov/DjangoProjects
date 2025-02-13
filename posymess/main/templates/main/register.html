@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <div class="container mt-2" style="width: 650px;">
+        <div class="card shadow-lg" style="height: 340px;">
+            <div class="card-header text-center bg-success text-white">
+                <h4 class="mb-0">Регистрация</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group row align-items-center">
+                        <label for="username" class="col-sm-4 col-form-label text-right">Имя пользователя:</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Введите имя пользователя">
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="email" class="col-sm-4 col-form-label text-right">Электронная почта:</label>
+                        <div class="col-sm-8">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Введите e-mail">
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="password" class="col-sm-4 col-form-label text-right">Пароль:</label>
+                        <div class="col-sm-8">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Введите пароль">
+                        </div>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="confirm_password" class="col-sm-4 col-form-label text-right">Подтвердите пароль:</label>
+                        <div class="col-sm-8">
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Введите пароль еще раз">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-success w-100">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <p class = "text-danger" style="margin-top: 20px;">
+                {% for item in errors %}
+                    {{ item }}<br>
+                {% endfor %}
+            </p>
+            <p class = "text-success" style="margin-top: -20px;">
+                {{ message }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
